@@ -17,7 +17,7 @@ public class NumberGuessingGame {
 
                 int secretNumber = (int) (Math.random() * 100) + 1;
                 int remainingAttempts = MAX_ATTEMPTS;
-                boolean hasWon = false;
+                boolean gameWon = false;
 
                 System.out.println("\nI have selected a number between 1 and 100.");
                 System.out.println("You have " + MAX_ATTEMPTS + " attempts.");
@@ -25,7 +25,20 @@ public class NumberGuessingGame {
                 while (remainingAttempts > 0) {
 
                     System.out.print("Enter your guess: ");
+
+                    // Validate integer input
+                    while (!scanner.hasNextInt()) {
+                        System.out.print("Please enter a valid number: ");
+                        scanner.next();
+                    }
+
                     int userGuess = scanner.nextInt();
+
+                    // Validate range
+                    if (userGuess < 1 || userGuess > 100) {
+                        System.out.println("Please enter a number between 1 and 100.");
+                        continue;
+                    }
 
                     remainingAttempts--;
 
@@ -35,7 +48,7 @@ public class NumberGuessingGame {
                         System.out.println("Too high! Try again.");
                     } else {
                         System.out.println("Congratulations! You guessed the number.");
-                        hasWon = true;
+                        gameWon = true;
                         break;
                     }
 
@@ -44,7 +57,7 @@ public class NumberGuessingGame {
                     }
                 }
 
-                if (!hasWon) {
+                if (!gameWon) {
                     System.out.println("Sorry! You have used all your attempts.");
                     System.out.println("The correct number was: " + secretNumber);
                 }
