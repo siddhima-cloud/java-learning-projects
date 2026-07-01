@@ -1,3 +1,4 @@
+
 # Number Guessing Game
 
 A simple console-based Number Guessing Game built in Java. The computer randomly selects a number between **1 and 100**, and the player has **5 attempts** to guess it correctly.
@@ -86,3 +87,8 @@ Too low! Try again.
 **Siddhima Tiwari**
 
 This project is part of my Java learning journey and GitHub portfolio.
+=======
+## Updated Features
+
+- Input validation for non-numeric values
+- Range validation (1–100)
